@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 data/private/
 runs/private/
+papers/

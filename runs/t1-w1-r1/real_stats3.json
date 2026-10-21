@@ -1,0 +1,131 @@
+[
+  {
+    "record": "ГАА_1",
+    "hand": {
+      "dc": 15516.0,
+      "drift_std": 1600.5,
+      "drift_p1_p99": [
+        -3569.3,
+        4068.9
+      ],
+      "pulse_rms": 225.5,
+      "pulse_p999": 1798.7,
+      "pulse_to_dc_pct": 1.45,
+      "noise_rms": 2442.2,
+      "snr_db": -20.7,
+      "noise_over_pulse_pct": 1083.0,
+      "dominant_hz": 1.367,
+      "env_cv_10s": 0.791,
+      "env_min_over_max": 0.01
+    },
+    "foot": {
+      "dc": 25093.0,
+      "drift_std": 424.0,
+      "drift_p1_p99": [
+        -1043.2,
+        1365.5
+      ],
+      "pulse_rms": 348.4,
+      "pulse_p999": 933.4,
+      "pulse_to_dc_pct": 1.39,
+      "noise_rms": 2068.9,
+      "snr_db": -15.5,
+      "noise_over_pulse_pct": 593.9,
+      "dominant_hz": 1.367,
+      "env_cv_10s": 0.489,
+      "env_min_over_max": 0.142
+    },
+    "delay_ms_median": 81.2,
+    "delay_ms_iqr": [
+      78.1,
+      87.5
+    ],
+    "pairs": 379
+  },
+  {
+    "record": "ГАА_2",
+    "hand": {
+      "dc": 15910.0,
+      "drift_std": 1675.5,
+      "drift_p1_p99": [
+        -3575.1,
+        4769.6
+      ],
+      "pulse_rms": 213.1,
+      "pulse_p999": 572.4,
+      "pulse_to_dc_pct": 1.34,
+      "noise_rms": 2068.7,
+      "snr_db": -19.7,
+      "noise_over_pulse_pct": 970.6,
+      "dominant_hz": 1.328,
+      "env_cv_10s": 0.729,
+      "env_min_over_max": 0.02
+    },
+    "foot": {
+      "dc": 20890.0,
+      "drift_std": 307.4,
+      "drift_p1_p99": [
+        -813.6,
+        863.9
+      ],
+      "pulse_rms": 256.9,
+      "pulse_p999": 685.8,
+      "pulse_to_dc_pct": 1.23,
+      "noise_rms": 2506.5,
+      "snr_db": -19.8,
+      "noise_over_pulse_pct": 975.6,
+      "dominant_hz": 1.328,
+      "env_cv_10s": 0.526,
+      "env_min_over_max": 0.151
+    },
+    "delay_ms_median": 84.4,
+    "delay_ms_iqr": [
+      81.2,
+      93.8
+    ],
+    "pairs": 383
+  },
+  {
+    "record": "ГАА_3",
+    "hand": {
+      "dc": 13649.0,
+      "drift_std": 1025.4,
+      "drift_p1_p99": [
+        -1732.9,
+        5120.0
+      ],
+      "pulse_rms": 241.1,
+      "pulse_p999": 1719.8,
+      "pulse_to_dc_pct": 1.77,
+      "noise_rms": 2261.3,
+      "snr_db": -19.4,
+      "noise_over_pulse_pct": 937.9,
+      "dominant_hz": 1.25,
+      "env_cv_10s": 0.798,
+      "env_min_over_max": 0.013
+    },
+    "foot": {
+      "dc": 19859.0,
+      "drift_std": 311.1,
+      "drift_p1_p99": [
+        -778.4,
+        932.4
+      ],
+      "pulse_rms": 280.6,
+      "pulse_p999": 755.2,
+      "pulse_to_dc_pct": 1.41,
+      "noise_rms": 1844.2,
+      "snr_db": -16.4,
+      "noise_over_pulse_pct": 657.1,
+      "dominant_hz": 1.211,
+      "env_cv_10s": 0.457,
+      "env_min_over_max": 0.193
+    },
+    "delay_ms_median": 81.2,
+    "delay_ms_iqr": [
+      78.1,
+      93.8
+    ],
+    "pairs": 340
+  }
+]

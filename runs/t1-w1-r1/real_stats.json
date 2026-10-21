@@ -1,0 +1,104 @@
+[
+  {
+    "record": "ГАА_1",
+    "n_samples": 134753,
+    "duration_s": 421.1,
+    "hand_mean": 15809.8,
+    "hand_std": 3031.7,
+    "foot_mean": 25765.7,
+    "foot_std": 2154.4,
+    "hr_bpm_median": 81.2,
+    "ibi_s_p05_p95": [
+      0.673,
+      0.889
+    ],
+    "n_peaks_hand": 387,
+    "n_peaks_foot": 563,
+    "peak_match_frac": 0.987,
+    "amp_hand_median": 220.8,
+    "amp_foot_median": 232.2,
+    "foot_to_hand_amp": 1.052,
+    "noise_hand_std_hf": 3022.01,
+    "noise_foot_std_hf": 2125.34,
+    "snr_hand": 0.07,
+    "snr_foot": 0.16,
+    "hand_shape": {
+      "rise_time_s_median": 0.316,
+      "half_width_s_median": 0.212,
+      "dicrotic_ratio_median": 0.796
+    },
+    "foot_shape": {
+      "rise_time_s_median": 0.375,
+      "half_width_s_median": 0.269,
+      "dicrotic_ratio_median": 0.754
+    }
+  },
+  {
+    "record": "ГАА_2",
+    "n_samples": 137997,
+    "duration_s": 431.2,
+    "hand_mean": 16244.0,
+    "hand_std": 2775.4,
+    "foot_mean": 21969.5,
+    "foot_std": 2533.0,
+    "hr_bpm_median": 79.7,
+    "ibi_s_p05_p95": [
+      0.681,
+      0.815
+    ],
+    "n_peaks_hand": 385,
+    "n_peaks_foot": 579,
+    "peak_match_frac": 0.995,
+    "amp_hand_median": 214.6,
+    "amp_foot_median": 154.2,
+    "foot_to_hand_amp": 0.719,
+    "noise_hand_std_hf": 2766.94,
+    "noise_foot_std_hf": 2520.29,
+    "snr_hand": 0.08,
+    "snr_foot": 0.1,
+    "hand_shape": {
+      "rise_time_s_median": 0.331,
+      "half_width_s_median": 0.228,
+      "dicrotic_ratio_median": 0.777
+    },
+    "foot_shape": {
+      "rise_time_s_median": 0.378,
+      "half_width_s_median": 0.303,
+      "dicrotic_ratio_median": 0.704
+    }
+  },
+  {
+    "record": "ГАА_3",
+    "n_samples": 138286,
+    "duration_s": 432.1,
+    "hand_mean": 13406.7,
+    "hand_std": 2519.8,
+    "foot_mean": 20623.1,
+    "foot_std": 1888.6,
+    "hr_bpm_median": 73.1,
+    "ibi_s_p05_p95": [
+      0.7,
+      2.102
+    ],
+    "n_peaks_hand": 363,
+    "n_peaks_foot": 532,
+    "peak_match_frac": 0.942,
+    "amp_hand_median": 217.0,
+    "amp_foot_median": 185.7,
+    "foot_to_hand_amp": 0.856,
+    "noise_hand_std_hf": 2506.63,
+    "noise_foot_std_hf": 1867.55,
+    "snr_hand": 0.1,
+    "snr_foot": 0.15,
+    "hand_shape": {
+      "rise_time_s_median": 0.325,
+      "half_width_s_median": 0.237,
+      "dicrotic_ratio_median": 0.824
+    },
+    "foot_shape": {
+      "rise_time_s_median": 0.353,
+      "half_width_s_median": 0.231,
+      "dicrotic_ratio_median": 0.936
+    }
+  }
+]

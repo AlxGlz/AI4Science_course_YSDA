@@ -19,11 +19,16 @@ def wave(x: np.ndarray) -> np.ndarray:
     return np.exp(-((x - 0.3) / 0.12) ** 2)
 
 
-def generate(out_dir, params, tau_override=None, drop_override=None) -> None:
+def generate(out_dir, params, tau_override=None, drop_override=None,
+             seed_override=None, amp_foot_scale=1.0, drop_waves=0) -> None:
     """Строит signal.csv / truth.csv / params.json в out_dir.
 
-    tau_override / drop_override позволяют намеренно «сломать» модулятор
-    для selftest (игнорировать заданный tau или drop).
+    Override-параметры позволяют намеренно «сломать» модулятор для selftest:
+      tau_override      — игнорировать заданный tau (задержка стопы);
+      drop_override     — игнорировать заданный drop (доля пропусков);
+      seed_override     — игнорировать заданный seed (детерминизм);
+      amp_foot_scale    — масштаб amp_foot (нарушить amp_foot = k*amp_hand);
+      drop_waves        — сколько волн стереть из signal.csv (нарушить число волн).
     """
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -35,7 +40,7 @@ def generate(out_dir, params, tau_override=None, drop_override=None) -> None:
     tau = params["tau"] if tau_override is None else tau_override
     sigma = params["sigma"]
     drop = params["drop"] if drop_override is None else drop_override
-    seed = params["seed"]
+    seed = params["seed"] if seed_override is None else seed_override
 
     rng = np.random.default_rng(seed)
 
@@ -77,12 +82,18 @@ def generate(out_dir, params, tau_override=None, drop_override=None) -> None:
             "t_foot_onset": o + tau,
             "t_foot_peak": peak_t + tau,
             "amp_hand": amp,
-            "amp_foot": k * amp if p else 0.0,
+            "amp_foot": k * amp * amp_foot_scale if p else 0.0,
             "present": 1 if p else 0,
         })
 
     hand += sigma * rng.standard_normal(len(t))
     foot += sigma * rng.standard_normal(len(t))
+
+    # намеренно стереть drop_waves волн из signal.csv (для selftest числа волн)
+    if drop_waves > 0:
+        for o in onsets[:drop_waves]:
+            idx = (t >= o) & (t < o + width)
+            hand[idx] = 0.0
 
     with open(out_dir / "signal.csv", "w") as f:
         f.write("t,hand,foot\n")

@@ -15,6 +15,7 @@
 
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -227,6 +228,98 @@ def check_foot_delay(run_dir: Path) -> list[str]:
     return problems
 
 
+def check_amp_foot(run_dir: Path) -> list[str]:
+    """У присутствующих ударов amp_foot должен быть k*amp_hand."""
+    problems = []
+    params = json.loads((run_dir / "params.json").read_text())
+    k = params["k"]
+    tr = _read_csv(run_dir / "truth.csv")
+    pr = tr[tr["present"] == 1]
+    if len(pr) == 0:
+        problems.append("нет присутствующих ударов для проверки amp_foot = k*amp_hand")
+        return problems
+    expected = k * pr["amp_hand"].to_numpy()
+    actual = pr["amp_foot"].to_numpy()
+    tol = AMP_RTOL * np.abs(expected) + AMP_ATOL
+    bad = np.abs(actual - expected) > tol
+    if bad.any():
+        n_bad = int(bad.sum())
+        rel = np.abs(actual[bad] - expected[bad]) / np.maximum(np.abs(expected[bad]), 1e-9)
+        problems.append(
+            f"amp_foot != k*amp_hand у {n_bad}/{len(pr)} присутствующих ударов, "
+            f"макс. отн. ошибка {rel.max():.3f}"
+        )
+    return problems
+
+
+def check_seed_sensitivity(run_dir: Path, run_py: Path) -> list[str]:
+    """Разный seed должен давать разный сигнал (перезапуск с другим seed)."""
+    problems = []
+    params = json.loads((run_dir / "params.json").read_text())
+    other_seed = params["seed"] + 1
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_dir = Path(tmp)
+        # копируем modulator.py и папку прогона (run.py + params.json с другим seed)
+        # в temp — run.py читает params из своей папки, а modulator ищет в parent.parent
+        mod_src = run_py.resolve().parent.parent / "modulator.py"
+        shutil.copy(mod_src, tmp_dir / "modulator.py")
+        run_copy = tmp_dir / "run"
+        run_copy.mkdir()
+        shutil.copy(run_py, run_copy / "run.py")
+        alt_params = dict(params)
+        alt_params["seed"] = other_seed
+        (run_copy / "params.json").write_text(json.dumps(alt_params))
+        try:
+            subprocess.run(
+                [sys.executable, str(run_copy / "run.py"), str(run_copy)],
+                cwd=str(run_copy), check=True, capture_output=True, text=True,
+                timeout=120,
+            )
+        except subprocess.CalledProcessError as e:
+            return [f"run.py упал при перезапуске с другим seed: {e.stderr.strip()[:300]}"]
+        except subprocess.TimeoutExpired:
+            return ["run.py не завершился за 120 c при перезапуске с другим seed"]
+        alt_sig = run_copy / "signal.csv"
+        if not alt_sig.exists():
+            return ["перезапуск с другим seed не создал signal.csv"]
+        a = _read_csv(run_dir / "signal.csv").to_numpy()
+        b = _read_csv(alt_sig).to_numpy()
+        if a.shape == b.shape and np.allclose(a, b, atol=REPRO_ATOL, rtol=0):
+            problems.append(
+                f"сигнал не зависит от seed: seed={params['seed']} и seed={other_seed} дали одинаковый signal.csv"
+            )
+    return problems
+
+
+def check_wave_count(run_dir: Path) -> list[str]:
+    """Число волн в signal.csv должно совпадать с числом строк truth.csv."""
+    problems = []
+    params = json.loads((run_dir / "params.json").read_text())
+    fs = params["fs"]
+    sig = _read_csv(run_dir / "signal.csv")
+    tr = _read_csv(run_dir / "truth.csv")
+    hand = sig["hand"].to_numpy()
+    n_truth = len(tr)
+
+    # считаем пики руки выше порога (amp >= 0.3, шум sigma мал) с мин. расстоянием
+    thr = 0.3
+    min_dist = int(round(0.3 * fs))  # ~половина ширины волны
+    peaks = []
+    i = 1
+    while i < len(hand) - 1:
+        if hand[i] > thr and hand[i] >= hand[i - 1] and hand[i] >= hand[i + 1]:
+            peaks.append(i)
+            i += min_dist
+        else:
+            i += 1
+    n_waves = len(peaks)
+    if n_waves != n_truth:
+        problems.append(
+            f"число волн в signal.csv {n_waves} != число строк truth.csv {n_truth}"
+        )
+    return problems
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Проверка прогона модулятора (задача 1)")
     ap.add_argument("run_dir", help="папка прогона")
@@ -247,6 +340,9 @@ def main() -> int:
         ("число ударов и доля пропусков", check_beats_and_drop(run_dir)),
         ("amp_hand против сигнала", check_amp_hand(run_dir)),
         ("задержка стопы против сигнала", check_foot_delay(run_dir)),
+        ("amp_foot = k*amp_hand", check_amp_foot(run_dir)),
+        ("чувствительность к seed", check_seed_sensitivity(run_dir, run_py)),
+        ("число волн = строк truth", check_wave_count(run_dir)),
     ]
 
     all_ok = True

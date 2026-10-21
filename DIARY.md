@@ -48,3 +48,44 @@ run.py; сломанные должны падать. Модулятор в `src
   (только amp_hand и лаг по отдельным ударам);
 - воспроизводимость проверяет детерминизм при том же seed, но не то, что
   seed действительно управляет генерацией.
+## 2026-10-21 — check_1.py: три новые проверки + три сломанных selftest-прогона
+
+**Запрос:** доработать checks/check_1.py (данные не исследовать, сразу править код).
+Добавить три проверки: amp_foot = k·amp_hand у присутствующих ударов; разный seed
+даёт разный сигнал; число волн в signal.csv совпадает с числом строк truth.csv.
+Для каждой — сломанный прогон в checks/selftest/, падающий на ней. Затем запустить
+check_1.py на всех selftest-прогонах и показать коды.
+
+**Что сделано:**
+- checks/check_1.py — добавлены 3 проверки (всего стало 8):
+  6. amp_foot = k·amp_hand у присутствующих ударов (rtol=0.10 + atol=1e-3);
+  7. чувствительность к seed: перезапуск run.py с другим seed (копия прогона в
+     temp с изменённым params.json) должен дать другой signal.csv;
+  8. число волн в signal.csv (пики руки выше порога 0.3, мин. расстояние 0.3 с)
+     == числу строк truth.csv.
+- checks/selftest/modulator.py — добавлены override-параметры generate():
+  seed_override, amp_foot_scale, drop_waves (для намеренной поломки).
+- checks/selftest/bad_amp_foot/ — сломанный: amp_foot_scale=1.5 (amp_foot != k·amp_hand).
+- checks/selftest/bad_seed/ — сломанный: seed_override=42 (сигнал не зависит от seed).
+- checks/selftest/bad_waves/ — сломанный: drop_waves=3 (стирает 3 волны из signal.csv).
+
+**Результат (коды возврата check_1.py):**
+- good: rc=0 (все 8 проверок PASS)
+- no_delay: rc=1 (FAIL: задержка стопы)
+- no_drop: rc=1 (FAIL: доля пропусков)
+- bad_amp_foot: rc=1 (FAIL: amp_foot = k·amp_hand)
+- bad_seed: rc=1 (FAIL: чувствительность к seed)
+- bad_waves: rc=1 (FAIL: число волн = строк truth)
+
+**Точка проверки:** запуск check_1.py на шести selftest-прогонах.
+
+**Итог проверки:** правильный прогон проходит все 8 проверок; каждый сломанный
+падает ровно на своей целевой проверке. Коды возврата подтверждены через
+cmd /V:ON с !ERRORLEVEL! (в cmd %errorlevel% в одной строке раскрывается до
+выполнения — артефакт оболочки).
+
+**Нюанс реализации:** check_seed_sensitivity копирует modulator.py и папку прогона
+в temp, т.к. run.py читает params.json из своей папки, а modulator ищет в
+parent.parent. bad_waves дополнительно падает на amp_hand (стёртые волны влияют
+на измерение амплитуды) — это ожидаемо, целевая проверка «число волн» тоже FAIL.
+

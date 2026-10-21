@@ -1,0 +1,85 @@
+PASS  [set_baseline] fs = 320 Hz — measured 320.0000 Hz
+PASS  [set_baseline] duration 420 s — 134400 samples, last t = 419.997 s
+PASS  [set_baseline] time axis strictly increasing
+PASS  [set_baseline] channels quantised to integer ADC counts
+PASS  [set_baseline] onsets strictly increasing
+PASS  [set_baseline] onset < peak_hand < peak_foot on every beat
+PASS  [set_baseline] beat ids contiguous
+PASS  [set_baseline] median HR 78 bpm — measured 78.4 bpm
+PASS  [set_baseline] beat count — 540 beats, expected ~546
+PASS  [set_baseline] hand peaks coincide with wave maxima — median |dt| 5.1 ms, p99 22 ms
+PASS  [set_baseline] hand peak times within 30 ms of markup — 99.8% of 537 beats
+PASS  [set_baseline] hand amplitudes match markup — median |err| 31 counts (6.1%), p95 73 counts; one sigma of noise is 30
+PASS  [set_baseline] hand amplitude scale reproduced — median measured/declared = 1.059 over 537 beats; peak estimator bias is ~0.07 of an amplitude
+PASS  [set_baseline] foot peaks coincide with wave maxima — median |dt| 9.3 ms, p99 38 ms (33 beats below 3 sigma of noise skipped)
+PASS  [set_baseline] foot peak times within 50 ms of markup — 100.0% of 501 beats (33 beats below 3 sigma of noise skipped); at SNR 21 dB the noise-limited timing error of a 0.15 s upstroke is ~11 ms
+PASS  [set_baseline] foot amplitudes match markup — median |err| 58 counts (12.0%), p95 127 counts over 501 beats; one sigma of noise is 45 (33 beats below 3 sigma of noise skipped)
+PASS  [set_baseline] foot amplitude scale reproduced — median measured/declared = 1.111 over 501 beats; peak estimator bias is ~0.11 of an amplitude
+PASS  [set_baseline] missed hand beats are empty — 3 beats, largest bump 5% of neighbouring pulse
+PASS  [set_baseline] missed foot beats are empty — 6 beats, largest bump 23% of the neighbouring pulse or of the 6 sigma noise floor (270 counts); a 140-sample noise maximum itself reaches ~2.7 sigma
+PASS  [set_baseline] peak delay hand->foot ~102 ms — markup 103 ms (arrival 82 ms + wave-width difference)
+PASS  [set_baseline] peak delay visible in signals — measured 104 ms (IQR 94-115 ms)
+PASS  [set_baseline] foot amplitude follows foot_gain — amp_foot / (amp_hand * gain) CV 0.0%
+PASS  [set_baseline] attenuation episodes present — min gain 0.19, 2 episodes, median gain 0.93
+PASS  [set_baseline] hand noise sigma ~30 counts — measured 29.9
+PASS  [set_baseline] foot noise sigma ~45 counts — measured 45.0
+PASS  [set_baseline] foot is noisier than hand — 45.0 vs 29.9
+PASS  [set_baseline] pulse stands above noise on hand — SNR 24.7 dB
+PASS  [set_clean] fs = 320 Hz — measured 320.0000 Hz
+PASS  [set_clean] duration 300 s — 96000 samples, last t = 299.997 s
+PASS  [set_clean] time axis strictly increasing
+PASS  [set_clean] channels quantised to integer ADC counts
+PASS  [set_clean] onsets strictly increasing
+PASS  [set_clean] onset < peak_hand < peak_foot on every beat
+PASS  [set_clean] beat ids contiguous
+PASS  [set_clean] median HR 72 bpm — measured 72.3 bpm
+PASS  [set_clean] beat count — 354 beats, expected ~360
+PASS  [set_clean] hand peaks coincide with wave maxima — median |dt| 3.1 ms, p99 16 ms
+PASS  [set_clean] hand peak times within 30 ms of markup — 100.0% of 353 beats
+PASS  [set_clean] hand amplitudes match markup — median |err| 17 counts (3.3%), p95 38 counts; one sigma of noise is 15
+PASS  [set_clean] hand amplitude scale reproduced — median measured/declared = 1.026 over 353 beats; peak estimator bias is ~0.03 of an amplitude
+PASS  [set_clean] foot peaks coincide with wave maxima — median |dt| 5.6 ms, p99 22 ms
+PASS  [set_clean] foot peak times within 50 ms of markup — 100.0% of 353 beats; at SNR 28 dB the noise-limited timing error of a 0.15 s upstroke is ~11 ms
+PASS  [set_clean] foot amplitudes match markup — median |err| 44 counts (8.5%), p95 79 counts over 353 beats; one sigma of noise is 20
+PASS  [set_clean] foot amplitude scale reproduced — median measured/declared = 1.085 over 353 beats; peak estimator bias is ~0.05 of an amplitude
+PASS  [set_clean] missed hand beats are empty — 1 beats, largest bump 4% of neighbouring pulse
+PASS  [set_clean] missed foot beats are empty — 1 beats, largest bump 5% of the neighbouring pulse or of the 6 sigma noise floor (119 counts); a 140-sample noise maximum itself reaches ~2.7 sigma
+PASS  [set_clean] peak delay hand->foot ~102 ms — markup 103 ms (arrival 82 ms + wave-width difference)
+PASS  [set_clean] peak delay visible in signals — measured 104 ms (IQR 98-109 ms)
+PASS  [set_clean] foot amplitude follows foot_gain — amp_foot / (amp_hand * gain) CV 0.0%
+PASS  [set_clean] hand noise sigma ~15 counts — measured 15.0
+PASS  [set_clean] foot noise sigma ~20 counts — measured 19.9
+PASS  [set_clean] foot is noisier than hand — 19.9 vs 15.0
+PASS  [set_clean] pulse stands above noise on hand — SNR 30.8 dB
+PASS  [set_hard] fs = 320 Hz — measured 320.0000 Hz
+PASS  [set_hard] duration 420 s — 134400 samples, last t = 419.997 s
+PASS  [set_hard] time axis strictly increasing
+PASS  [set_hard] channels quantised to integer ADC counts
+PASS  [set_hard] onsets strictly increasing
+PASS  [set_hard] onset < peak_hand < peak_foot on every beat
+PASS  [set_hard] beat ids contiguous
+PASS  [set_hard] median HR 96 bpm — measured 96.2 bpm
+PASS  [set_hard] beat count — 663 beats, expected ~672
+PASS  [set_hard] hand peaks coincide with wave maxima — median |dt| 6.3 ms, p99 25 ms
+PASS  [set_hard] hand peak times within 30 ms of markup — 99.8% of 657 beats
+PASS  [set_hard] hand amplitudes match markup — median |err| 65 counts (12.6%), p95 126 counts; one sigma of noise is 45
+PASS  [set_hard] hand amplitude scale reproduced — median measured/declared = 1.120 over 657 beats; peak estimator bias is ~0.10 of an amplitude
+PASS  [set_hard] foot peaks coincide with wave maxima — median |dt| 10.9 ms, p99 43 ms (93 beats below 3 sigma of noise skipped)
+PASS  [set_hard] foot peak times within 50 ms of markup — 100.0% of 555 beats (93 beats below 3 sigma of noise skipped); at SNR 16 dB the noise-limited timing error of a 0.15 s upstroke is ~11 ms
+PASS  [set_hard] foot amplitudes match markup — median |err| 75 counts (17.3%), p95 153 counts over 555 beats; one sigma of noise is 70 (93 beats below 3 sigma of noise skipped)
+PASS  [set_hard] foot amplitude scale reproduced — median measured/declared = 1.140 over 555 beats; peak estimator bias is ~0.19 of an amplitude
+PASS  [set_hard] missed hand beats are empty — 6 beats, largest bump 16% of neighbouring pulse
+PASS  [set_hard] missed foot beats are empty — 15 beats, largest bump 26% of the neighbouring pulse or of the 6 sigma noise floor (419 counts); a 140-sample noise maximum itself reaches ~2.7 sigma
+PASS  [set_hard] peak delay hand->foot ~102 ms — markup 103 ms (arrival 82 ms + wave-width difference)
+PASS  [set_hard] peak delay visible in signals — measured 103 ms (IQR 94-116 ms)
+PASS  [set_hard] foot amplitude follows foot_gain — amp_foot / (amp_hand * gain) CV 0.8%
+PASS  [set_hard] attenuation episodes present — min gain 0.09, 3 episodes, median gain 0.83
+PASS  [set_hard] hand noise sigma ~45 counts — measured 44.9
+PASS  [set_hard] foot noise sigma ~70 counts — measured 69.8
+PASS  [set_hard] foot is noisier than hand — 69.8 vs 44.9
+PASS  [set_hard] pulse stands above noise on hand — SNR 21.2 dB
+PASS  generator is deterministic for a fixed seed — 85d1daeae76c
+PASS  different seed gives a different signal — c021c1f9efad
+PASS  CLI output stable across two runs — e443d119d203
+------------------------------------------------------------------------
+83/83 checks passed

@@ -31,6 +31,7 @@ data/                 входные данные
   private/            записи пациентов (gitignored)
 papers/               исходные PDF статей (gitignored): Charlton 2023, PPG roadmap
 library/              переваренные статьи: карточка источника (пока отсутствует)
+tools/                служебные скрипты: build_class_notes.py — заметки классов из ontology.yaml
 runs/                 прогоны, по каталогу на прогон
   t1-w1-r1/           прогон 1 задачи T1, неделя 1
     modulator.py      генератор синтетических пар
@@ -57,7 +58,6 @@ runs/                 прогоны, по каталогу на прогон
     scratch/          черновики: diag.py (подбор формы), summary.py (сводка)
 notes/                заметки объектов по ontology.yaml (пока отсутствует)
 ontology/             заметки классов онтологии: файл <Класс>.md на каждый класс
-  build_class_notes.py  генератор заметок классов из ontology.yaml
 ontology.yaml         схема онтологии проекта
 ```
 

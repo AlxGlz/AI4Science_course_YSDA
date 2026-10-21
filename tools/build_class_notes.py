@@ -7,8 +7,8 @@
 Заметки классов руками не правятся: правится схема, скрипт запускается заново.
 
 Запуск:
-    .venv\\Scripts\\python ontology\\build_class_notes.py
-    .venv\\Scripts\\python ontology\\build_class_notes.py --check   # только сверка
+    .venv\\Scripts\\python tools\\build_class_notes.py
+    .venv\\Scripts\\python tools\\build_class_notes.py --check   # только сверка
 """
 from __future__ import annotations
 
@@ -67,7 +67,7 @@ def class_note(name: str, spec: dict, schema: dict) -> str:
     lines = [
         f"# {name}",
         "",
-        f"<!-- [порождено] `ontology/build_class_notes.py` из `ontology.yaml`"
+        f"<!-- [порождено] `tools/build_class_notes.py` из `ontology.yaml`"
         f" {dt.date.today().isoformat()}. Руками не править: правится схема"
         f" и скрипт запускается заново. -->",
         "",

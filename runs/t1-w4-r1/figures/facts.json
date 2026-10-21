@@ -1,0 +1,41 @@
+{
+  "fig1_clean": {
+    "window_s": [
+      40.0,
+      50.0
+    ],
+    "beats": 12,
+    "measured_over_declared_hand": 0.9565411860328592,
+    "measured_over_declared_foot": 0.9231459864411595,
+    "peak_time_error_ms_hand": 3.0624999999986358,
+    "peak_time_error_ms_foot": 14.414999999999623
+  },
+  "fig2_attenuation": {
+    "episode_centres_s": [
+      92.4,
+      327.6
+    ],
+    "declared_min_gain_over_base": 0.3800760869565217,
+    "declared_depth": 0.38,
+    "measured_foot_amp_over_declared_in_core": 0.3719350737708577,
+    "measured_foot_amp_over_declared_outside": 0.8957870689692092,
+    "measured_drop_ratio": 0.4152047809741739
+  },
+  "fig3_missed": {
+    "n_missed_hand": 6,
+    "n_missed_foot": 4,
+    "max_hand_bump_share": 0.10320480266100558,
+    "max_foot_bump_share": 0.09041129745221874,
+    "foot_kept_when_hand_missed": 0.964977263741389
+  },
+  "fig4_shape": {
+    "declared_rise_hand_ms": 150.0,
+    "declared_rise_foot_ms": 206.8480347865746,
+    "declared_foot_delay_ms": 23.902788967752066,
+    "declared_peak_delay_ms": 80.75082375432666,
+    "measured_peak_delay_ms": 87.50000000000301,
+    "measured_rise_hand_ms": 152.3274999999984,
+    "measured_rise_foot_ms_from_delay": 214.5832110322568,
+    "tau_ms": 150.0
+  }
+}

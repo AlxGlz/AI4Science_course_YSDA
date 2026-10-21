@@ -1,0 +1,39 @@
+{
+  "preset": "attenuation",
+  "config": {
+    "name": "attenuation",
+    "seed": 20261024,
+    "fs": 320.0,
+    "duration_s": 420.0,
+    "hr_bpm": 74.0,
+    "hr_variability": 0.035,
+    "dc_hand": 15000.0,
+    "dc_foot": 22000.0,
+    "drift_hand": 140.0,
+    "drift_foot": 120.0,
+    "noise_hand": 26.0,
+    "noise_foot": 30.0,
+    "amp_hand": 700.0,
+    "foot_delay_s": 0.023902788967752067,
+    "rise_hand_s": 0.15,
+    "rise_foot_s": 0.2068480347865746,
+    "foot_gain": 0.46,
+    "n_attenuation": 2,
+    "attenuation_depth": 0.38,
+    "n_missed_hand": 0,
+    "n_missed_foot": 0,
+    "tau_s": 0.15,
+    "lpf_gain": 0.4269608811105166,
+    "foot_peak_s": 0.23075082375432668,
+    "resp_depth": 0.12,
+    "resp_period_s": 4.2,
+    "drift_share": 0.45,
+    "shape": {
+      "sigma": 0.26,
+      "refl_amp": 0.28,
+      "refl_at": 1.85,
+      "refl_sigma": 0.42
+    },
+    "n_beats": 518
+  }
+}

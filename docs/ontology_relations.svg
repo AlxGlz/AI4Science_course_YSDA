@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="500" viewBox="0 0 680 500" role="img">
+<title>Связи классов онтологии</title>
+<desc>[порождено] Claude Code (Opus 5.5); проверено и принято пользователем. Тринадцать рабочих классов онтологии и отношения между ними.</desc>
+<style>
+  svg { background: #ffffff; }
+  text { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; }
+  .th { font-size: 14px; font-weight: 500; }
+  .ts { font-size: 12px; fill: #5F5E5A; }
+  .arr { stroke: #73726c; stroke-width: 1.2; fill: none; }
+  .lit rect { fill: #E1F5EE; stroke: #0F6E56; } .lit text { fill: #085041; }
+  .proj rect { fill: #EEEDFE; stroke: #534AB7; } .proj text { fill: #3C3489; }
+  .srv rect { fill: #F1EFE8; stroke: #5F5E5A; } .srv .th { fill: #444441; }
+</style>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#73726c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+<rect width="680" height="500" fill="#ffffff"/>
+
+<path d="M110 150 L110 98" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="118" y="128">утверждаетсяВ</text>
+<path d="M30 272 L18 272 L18 72 L26 72" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="26" y="232">взятаИз</text>
+<path d="M270 262 L176 190" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="236" y="246" text-anchor="end">основанНа</text>
+<path d="M270 276 L174 276" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="214" y="294" text-anchor="middle">включает</text>
+<path d="M510 272 L414 272" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="460" y="264" text-anchor="middle">применяет</text>
+<path d="M510 258 L414 190" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="474" y="246">даёт</text>
+<path d="M580 294 L580 346" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="572" y="316" text-anchor="end">использует,</text>
+<text class="ts" x="572" y="332" text-anchor="end">порождает</text>
+<path d="M270 172 L174 172" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="210" y="164" text-anchor="middle">согласуетсяС</text>
+<text class="ts" x="210" y="190" text-anchor="middle">противоречит</text>
+<path d="M410 172 L506 172" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="458" y="164" text-anchor="middle">проверенЧерез</text>
+<path d="M340 350 L340 298" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="348" y="328">ограничивает</text>
+<path d="M410 372 L506 372" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="458" y="364" text-anchor="middle">ограничивает</text>
+<path d="M270 384 L258 384 L258 186 L266 186" class="arr" marker-end="url(#arrow)"/>
+<path d="M270 72 L174 72" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="220" y="64" text-anchor="middle">ссылаетсяНа</text>
+<path d="M410 72 L506 72" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="458" y="64" text-anchor="middle">выполняет</text>
+<path d="M340 94 L340 146" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="348" y="124">описывает</text>
+<path d="M580 150 L580 98" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="588" y="128">решает</text>
+<path d="M650 272 L666 272 L666 72 L654 72" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="658" y="230" text-anchor="end">решает</text>
+<path d="M560 50 C560 24 600 24 600 46" class="arr" marker-end="url(#arrow)"/>
+<text class="ts" x="580" y="18" text-anchor="middle">подзадачаОт</text>
+
+<g class="lit"><rect x="30" y="50" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="100" y="72" text-anchor="middle" dominant-baseline="central">Источник</text></g>
+<g class="lit"><rect x="30" y="150" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="100" y="172" text-anchor="middle" dominant-baseline="central">Тезис</text></g>
+<g class="lit"><rect x="30" y="250" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="100" y="272" text-anchor="middle" dominant-baseline="central">Формула</text></g>
+
+<g class="srv"><rect x="270" y="50" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="340" y="72" text-anchor="middle" dominant-baseline="central">Отчёт</text></g>
+<g class="proj"><rect x="270" y="150" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="340" y="172" text-anchor="middle" dominant-baseline="central">Результат</text></g>
+<g class="proj"><rect x="270" y="250" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="340" y="272" text-anchor="middle" dominant-baseline="central">Метод</text></g>
+<g class="proj"><rect x="270" y="350" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="340" y="372" text-anchor="middle" dominant-baseline="central">Ограничение</text></g>
+
+<g class="srv"><rect x="510" y="50" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="580" y="72" text-anchor="middle" dominant-baseline="central">Задача</text></g>
+<g class="proj"><rect x="510" y="150" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="580" y="172" text-anchor="middle" dominant-baseline="central">Проверка</text></g>
+<g class="proj"><rect x="510" y="250" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="580" y="272" text-anchor="middle" dominant-baseline="central">Прогон</text></g>
+<g class="proj"><rect x="510" y="350" width="140" height="44" rx="6" stroke-width="0.8"/><text class="th" x="580" y="372" text-anchor="middle" dominant-baseline="central">НаборДанных</text></g>
+
+<g class="srv"><rect x="30" y="414" width="620" height="70" rx="6" stroke-width="0.8"/>
+<text class="th" x="340" y="432" text-anchor="middle" dominant-baseline="central">Файл</text>
+<text class="ts" x="340" y="452" text-anchor="middle" dominant-baseline="central">хранитсяВ ← Источник, НаборДанных, Результат</text>
+<text class="ts" x="340" y="470" text-anchor="middle" dominant-baseline="central">реализованВ ← Формула, Метод, Прогон, Проверка</text></g>
+</svg>
